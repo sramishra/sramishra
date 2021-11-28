@@ -36,20 +36,27 @@ public class Engine {
 		}
 		totalOrderValue(m, unitprice);
 	}
-	public static int totalOrderValue(HashMap<String, Integer> m ,HashMap<String, Integer> unitprice ) {
-		 int orderValue_A =0;
-		 int orderValue_B=0;
-		 //Active Promotion Logic for A
-		 if(m.get("A") != 0){
-		 int val1 =(m.get("A")/3) *130;//.add
-		 int val2 =((m.get("A")%3)*unitprice.get("A"));
-		 orderValue_A = val1+val2;
-		System.out.println("Value is :" +orderValue_A);
-		 }
-		
 
-		
+	public static int totalOrderValue(HashMap<String, Integer> m, HashMap<String, Integer> unitprice) {
+		int orderValue_A = 0;
+		int orderValue_B = 0;
+		// Active Promotion Logic for A
+		if (m.get("A") != 0) {
+			int val1 = (m.get("A") / 3) * 130;// .add
+			int val2 = ((m.get("A") % 3) * unitprice.get("A"));
+			orderValue_A = val1 + val2;
+			System.out.println("Value is :" + orderValue_A);
+		}
+
+		// Active Promotion Logic for B
+		if (m.get("B") != 0) {
+			int val1B = ((m.get("B") / 2) * 45);// .add
+			int val2B = ((m.get("B") % 2) * unitprice.get("B"));
+			orderValue_B = val1B + val2B;
+			System.out.println("Value is :" + orderValue_B);
+		}
+
 		return 0;
-		
+
 	}
 }
