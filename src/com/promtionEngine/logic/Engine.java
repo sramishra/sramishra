@@ -1,3 +1,4 @@
+//Problem Statement 1: Promotion Engine
 package com.promtionEngine.logic;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Engine {
 	public static void main(String[] args) {
 
-		// Taking input SKU and its unit number from user
+		
 		HashMap<String, Integer> m = new HashMap();
 		m.put("A", 0);
 		m.put("B", 0);
@@ -22,12 +23,13 @@ public class Engine {
 		ArrayList<Integer> unit = new ArrayList<Integer>();
 		Scanner sc = new Scanner(System.in);
 		int n = 1;
-		System.out.print("Enter total types of SKU ids: "); //ex: if input is 3 =>SKUs are A,B,C
+		// Taking input SKU and its unit number from user
+		System.out.print("Enter total types of SKU ids: "); // ex: if input is 3 =>SKUs are A,B,C
 		n = sc.nextInt();
 		for (int i = 0; i < n; i++) {
-			System.out.print("Enter SKU :"); //ex: A,B,C..
+			System.out.print("Enter SKU :"); // ex: A,B,C..
 			sku.add(sc.next());
-			System.out.print("Enter units of :" + sku); //ex : 1,2,3..
+			System.out.print("Enter units of :" + sku); // ex : 1,2,3..
 			unit.add(sc.nextInt());
 			m.put(sku.get(0), unit.get(0));
 			sku.clear();
@@ -55,40 +57,33 @@ public class Engine {
 			orderValue_B = val1B + val2B;
 			System.out.println("Value of B is :" + orderValue_B);
 		}
-		//Active Promotion Logic for C and D
-				int valC = unitprice.get("C");
-				int valD = unitprice.get("D");
-				int orderValue_CD=0;
-				int orderValue_C=0;
-				int orderValue_D=0;
-				if(m.get("C") != 0 & m.get("D") != 0  )
-				{
-				 orderValue_CD = 30;
-				 if(m.get("C") == m.get("D"))
-				 {
-					 orderValue_CD = 30*(m.get("C"));
-				 }
-				 else if(m.get("C") > m.get("D")) {
-					 orderValue_CD = ((m.get("D")*30)+((m.get("C") - m.get("D"))*valC));
-				 }
-				 else {
-					 orderValue_CD = ((m.get("C")*30)+((m.get("D") - m.get("C"))*valD));
-				     }
-					System.out.println("Value of C + D is :" +orderValue_CD);
-				}
-				else{
-					orderValue_C = m.get("C") * unitprice.get("C");
-					System.out.println("Value of C is :" +orderValue_C);
-					orderValue_D = m.get("D") * unitprice.get("D");
-					System.out.println("Value of D is :" +orderValue_D);
-					
-					}
-				
-			
-				int totalOrderValue=orderValue_A+orderValue_B+orderValue_C+orderValue_D+ orderValue_CD;
-				System.out.println("Total Order Value is " + totalOrderValue);
-				return totalOrderValue;
+		// Active Promotion Logic for C and D
+		int valC = unitprice.get("C");
+		int valD = unitprice.get("D");
+		int orderValue_CD = 0;
+		int orderValue_C = 0;
+		int orderValue_D = 0;
+		if (m.get("C") != 0 & m.get("D") != 0) {
+			orderValue_CD = 30;
+			if (m.get("C") == m.get("D")) {
+				orderValue_CD = 30 * (m.get("C"));
+			} else if (m.get("C") > m.get("D")) {
+				orderValue_CD = ((m.get("D") * 30) + ((m.get("C") - m.get("D")) * valC));
+			} else {
+				orderValue_CD = ((m.get("C") * 30) + ((m.get("D") - m.get("C")) * valD));
+			}
+			System.out.println("Value of C + D is :" + orderValue_CD);
+		} else {
+			orderValue_C = m.get("C") * unitprice.get("C");
+			System.out.println("Value of C is :" + orderValue_C);
+			orderValue_D = m.get("D") * unitprice.get("D");
+			System.out.println("Value of D is :" + orderValue_D);
 
+		}
+
+		int totalOrderValue = orderValue_A + orderValue_B + orderValue_C + orderValue_D + orderValue_CD;
+		System.out.println("Total Order Value is " + totalOrderValue);
+		return totalOrderValue;
 
 	}
 }
