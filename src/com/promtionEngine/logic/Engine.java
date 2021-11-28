@@ -74,8 +74,17 @@ public class Engine {
 				 else
 					 orderValue_CD = ((m.get("C")*30)+((m.get("D") - m.get("C"))*valD)); 
 				}
+				else{
+					orderValue_C = m.get("C") * unitprice.get("C");
+					orderValue_D = m.get("D") * unitprice.get("D");
+					}
+				System.out.println("Value C is :" +orderValue_C);
+				System.out.println("Value D is :" +orderValue_D);
+				System.out.println("Value CD is :" +orderValue_CD);
+				int totalOrderValue=orderValue_A+orderValue_B+orderValue_C+orderValue_D+ orderValue_CD;
+				System.out.println("Total Order Value is " + totalOrderValue);
+				return totalOrderValue;
 
-		return 0;
 
 	}
 }
