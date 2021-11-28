@@ -22,12 +22,12 @@ public class Engine {
 		ArrayList<Integer> unit = new ArrayList<Integer>();
 		Scanner sc = new Scanner(System.in);
 		int n = 1;
-		System.out.println("Enter no of SKU :\n");
+		System.out.println("Enter total types of SKU ids: "); //ex: if input is 3 =>SKUs are A,B,C
 		n = sc.nextInt();
 		for (int i = 0; i < n; i++) {
-			System.out.println("Enter SKU :\n");
+			System.out.println("Enter SKU :"); //ex: A,B,C..
 			sku.add(sc.next());
-			System.out.println("Enter units of :\n" + sku);
+			System.out.println("Enter units of :\n" + sku); //ex : 1,2,3..
 			unit.add(sc.nextInt());
 			m.put(sku.get(0), unit.get(0));
 			sku.clear();
@@ -42,7 +42,7 @@ public class Engine {
 		int orderValue_B = 0;
 		// Active Promotion Logic for A
 		if (m.get("A") != 0) {
-			int val1 = (m.get("A") / 3) * 130;// .add
+			int val1 = (m.get("A") / 3) * 130;
 			int val2 = ((m.get("A") % 3) * unitprice.get("A"));
 			orderValue_A = val1 + val2;
 			System.out.println("Value is :" + orderValue_A);
@@ -50,7 +50,7 @@ public class Engine {
 
 		// Active Promotion Logic for B
 		if (m.get("B") != 0) {
-			int val1B = ((m.get("B") / 2) * 45);// .add
+			int val1B = (m.get("B") / 2) * 45;
 			int val2B = ((m.get("B") % 2) * unitprice.get("B"));
 			orderValue_B = val1B + val2B;
 			System.out.println("Value is :" + orderValue_B);
