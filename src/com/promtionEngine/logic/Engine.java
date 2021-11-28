@@ -37,6 +37,18 @@ public class Engine {
 		totalOrderValue(m, unitprice);
 	}
 	public static int totalOrderValue(HashMap<String, Integer> m ,HashMap<String, Integer> unitprice ) {
+		 int orderValue_A =0;
+		 int orderValue_B=0;
+		 //Active Promotion Logic for A
+		 if(m.get("A") != 0){
+		 int val1 =(m.get("A")/3) *130;//.add
+		 int val2 =((m.get("A")%3)*unitprice.get("A"));
+		 orderValue_A = val1+val2;
+		System.out.println("Value is :" +orderValue_A);
+		 }
+		
+
+		
 		return 0;
 		
 	}
