@@ -22,12 +22,12 @@ public class Engine {
 		ArrayList<Integer> unit = new ArrayList<Integer>();
 		Scanner sc = new Scanner(System.in);
 		int n = 1;
-		System.out.println("Enter total types of SKU ids: "); //ex: if input is 3 =>SKUs are A,B,C
+		System.out.print("Enter total types of SKU ids: "); //ex: if input is 3 =>SKUs are A,B,C
 		n = sc.nextInt();
 		for (int i = 0; i < n; i++) {
-			System.out.println("Enter SKU :"); //ex: A,B,C..
+			System.out.print("Enter SKU :"); //ex: A,B,C..
 			sku.add(sc.next());
-			System.out.println("Enter units of :\n" + sku); //ex : 1,2,3..
+			System.out.print("Enter units of :" + sku); //ex : 1,2,3..
 			unit.add(sc.nextInt());
 			m.put(sku.get(0), unit.get(0));
 			sku.clear();
@@ -45,7 +45,7 @@ public class Engine {
 			int val1 = (m.get("A") / 3) * 130;
 			int val2 = ((m.get("A") % 3) * unitprice.get("A"));
 			orderValue_A = val1 + val2;
-			System.out.println("Value is :" + orderValue_A);
+			System.out.println("Value of A is :" + orderValue_A);
 		}
 
 		// Active Promotion Logic for B
@@ -53,7 +53,7 @@ public class Engine {
 			int val1B = (m.get("B") / 2) * 45;
 			int val2B = ((m.get("B") % 2) * unitprice.get("B"));
 			orderValue_B = val1B + val2B;
-			System.out.println("Value is :" + orderValue_B);
+			System.out.println("Value of B is :" + orderValue_B);
 		}
 		//Active Promotion Logic for C and D
 				int valC = unitprice.get("C");
@@ -71,16 +71,20 @@ public class Engine {
 				 else if(m.get("C") > m.get("D")) {
 					 orderValue_CD = ((m.get("D")*30)+((m.get("C") - m.get("D"))*valC));
 				 }
-				 else
-					 orderValue_CD = ((m.get("C")*30)+((m.get("D") - m.get("C"))*valD)); 
+				 else {
+					 orderValue_CD = ((m.get("C")*30)+((m.get("D") - m.get("C"))*valD));
+				     }
+					System.out.println("Value of C + D is :" +orderValue_CD);
 				}
 				else{
 					orderValue_C = m.get("C") * unitprice.get("C");
+					System.out.println("Value of C is :" +orderValue_C);
 					orderValue_D = m.get("D") * unitprice.get("D");
+					System.out.println("Value of D is :" +orderValue_D);
+					
 					}
-				System.out.println("Value C is :" +orderValue_C);
-				System.out.println("Value D is :" +orderValue_D);
-				System.out.println("Value CD is :" +orderValue_CD);
+				
+			
 				int totalOrderValue=orderValue_A+orderValue_B+orderValue_C+orderValue_D+ orderValue_CD;
 				System.out.println("Total Order Value is " + totalOrderValue);
 				return totalOrderValue;
