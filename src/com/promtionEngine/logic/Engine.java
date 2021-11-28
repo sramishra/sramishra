@@ -55,6 +55,25 @@ public class Engine {
 			orderValue_B = val1B + val2B;
 			System.out.println("Value is :" + orderValue_B);
 		}
+		//Active Promotion Logic for C and D
+				int valC = unitprice.get("C");
+				int valD = unitprice.get("D");
+				int orderValue_CD=0;
+				int orderValue_C=0;
+				int orderValue_D=0;
+				if(m.get("C") != 0 & m.get("D") != 0  )
+				{
+				 orderValue_CD = 30;
+				 if(m.get("C") == m.get("D"))
+				 {
+					 orderValue_CD = 30*(m.get("C"));
+				 }
+				 else if(m.get("C") > m.get("D")) {
+					 orderValue_CD = ((m.get("D")*30)+((m.get("C") - m.get("D"))*valC));
+				 }
+				 else
+					 orderValue_CD = ((m.get("C")*30)+((m.get("D") - m.get("C"))*valD)); 
+				}
 
 		return 0;
 
