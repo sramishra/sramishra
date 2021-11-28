@@ -78,7 +78,6 @@ public class Engine {
 			System.out.println("Value of C is :" + orderValue_C);
 			orderValue_D = m.get("D") * unitprice.get("D");
 			System.out.println("Value of D is :" + orderValue_D);
-
 		}
 
 		int totalOrderValue = orderValue_A + orderValue_B + orderValue_C + orderValue_D + orderValue_CD;
