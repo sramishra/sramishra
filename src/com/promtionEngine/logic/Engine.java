@@ -1,4 +1,6 @@
-//Problem Statement 1: Promotion Engine
+/*Problem Statement 1: Promotion Engine
+@author : Sradha Mishra*/
+
 package com.promtionEngine.logic;
 
 import java.util.ArrayList;
